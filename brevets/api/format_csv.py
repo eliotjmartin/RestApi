@@ -10,8 +10,8 @@ def csv_form(db, k, all="all"):
         open.append(i['open'])
         close.append(i['close'])
     response = []
-    open = open[0:k+1]
-    close = close[0:k+1]
+    open = open[0:k]
+    close = close[0:k]
     if all == "all":
         response.append(["Open", "Close"])
         for i in range(len(open)):

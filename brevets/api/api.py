@@ -43,7 +43,7 @@ class listAll(Resource):
         topk = request.args.get('top', default=-1, type=int)
         token = request.args.get('token', type=str)
         app.logger.debug(token)
-        if token:
+        if isinstance(token, str):
             if verify_auth_token(token):
                 if dtype == 'csv':
                     return format_csv.csv_form(db1, topk), 201
@@ -54,8 +54,7 @@ class listOpen(Resource):
     def get(self, dtype='json'):
         topk = request.args.get('top', default=-1, type=int)
         token = request.args.get('token', type=str)
-        app.logger.debug(verify_auth_token(token))
-        if token:
+        if isinstance(token, str):
             if verify_auth_token(token):
                 if dtype == 'csv':
                     return format_csv.csv_form(db1, topk, 'open'), 201
@@ -66,7 +65,7 @@ class listClose(Resource):
     def get(self, dtype='json'):
         topk = request.args.get('top', default=-1, type=int)
         token = request.args.get('token', type=str)
-        if token:
+        if isinstance(token, str):
             if verify_auth_token(token):
                 if dtype == 'csv':
                     return format_csv.csv_form(db1, topk, 'close'), 201
