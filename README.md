@@ -4,7 +4,7 @@ Eliot Martin | eliotm@uoregon.edu
 
 ## Overview
 
-This is a reimplementation of the RUSA ACP controle time calculator (https://rusa.org/octime_acp.html). There are three main parts to this calculator: main api (designed in project 5) that allows the user to enter distances in fields to calculate controle times, submit these times into a MongoDB database by clicking the "submit" button, and finally displaying the values from the data base on a separate page by clicking the "display" button. There is a rest-api that can also display the calculated open and close times in csv or json format (assuming there is a logged in user) by the following logic:
+This is a reimplementation of the RUSA ACP controle time calculator (https://rusa.org/octime_acp.html). There are three main parts to this calculator: The main API that allows the users to enter specific times and distances onto an HTML page that updates with calculated open/close times using jQuery. Upon hitting the submit button at the bottom of the sheet, the calculated open and close times are inserted into a MongoDB database. Finally, by hitting the display button, open and close values are printed on an separate HTML page. Next, there is a RESTful API that returns the calculated open and close times in csv or json format (assuming there is a logged in user) from the database. This is done by using the following calls:
 
 - "http://host:port/listAll/csv" should return all open and close times in CSV format
 
@@ -25,7 +25,7 @@ There is also an additional optional argument "top" that will display only the t
 - "http://host:port/listCloseOnly/csv?top=6" should return top 5 close times only (in ascending order) in CSV format
 - "http://host:port/listCloseOnly/json?top=4" should return top 4 close times only (in ascending order) in JSON format
 
-Finally, there is a consumer program with a logged in interface and a logged out interface. The Logged in interface will give the user the option to visit a secret page where they will have a text box to specify the top k open/close times, a checkbox for csv (JSON) by default, and three buttons where they can specify only open or close times, or all. The logged out interface will have a log in page and a register page. Obviously one needs to be registered to log in.
+Finally, the consumer program with a logged in interface and a logged out interface. To log in, one needs to register. Registering adds the user to the database. Once registered, the user can log in and access new information. Token-based authentication is used to protect user information in the database. The Logged in interface will give the user the option to visit a secret page where they can access the contents of the database via the REST API.
 
 
 ## Algorithm for brevet calculations
