@@ -4,7 +4,7 @@ Eliot Martin | eliotm@uoregon.edu
 
 ## Overview
 
-This is a reimplementation of the RUSA ACP controle time calculator (https://rusa.org/octime_acp.html). There are three main parts to this calculator: The main API that allows the users to enter specific times and distances onto an HTML page that updates with calculated open/close times (according to algorithm described in "Algorithm for brevet calculations" section) using jQuery. Upon hitting the submit button on the page, the calculated open and close times are inserted into a MongoDB database. Finally, by hitting the display button, open and close values are printed on an separate HTML page. Next, there is a RESTful API that returns the calculated open and close times in csv or json format (assuming there is a logged in user) from the database. This is done by using the following calls:
+This is a reimplementation of the RUSA ACP controle time calculator (https://rusa.org/octime_acp.html). There are three main parts to this calculator: The main API that allows the users to enter specific times and distances onto an HTML page that updates with calculated open/close times (according to algorithm described in "Algorithm for brevet calculations" section) using jQuery. Upon hitting the submit button on the page, the calculated open and close times are inserted into a MongoDB database. Finally, by hitting the display button, open and close values are printed on an separate HTML page. Next, there is a RESTful API that returns the calculated open and close times in csv or json format (assuming there is a logged in user) from the database. This is done by using the following requests:
 
 - "http://host:port/listAll/csv" should return all open and close times in CSV format
 
