@@ -1,4 +1,4 @@
-# A brevet time calculator with user authentication for CIS 322 #
+# A Brevet Time Calculator for CIS 322 #
 
 Eliot Martin | eliotm@uoregon.edu
 
